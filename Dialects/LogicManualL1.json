@@ -3,27 +3,27 @@
    "Connectives": {
        "NOT" : {
            "Keys"    : ["!"],
-           "Unicode" : "¬",
+           "Display" : "¬",
            "LaTeX"   : "\\lnot"
        },
        "AND" : {
            "Keys"    : ["&"],
-           "Unicode" : "∧",
+           "Display" : "∧",
            "LaTeX"   : "\\wedge"
        },
        "OR"  : {
            "Keys"    : ["|"],
-           "Unicode" : "∨",
+           "Display" : "∨",
            "LaTeX"   : "\\vee"
        },
        "IF"  : {
            "Keys"    : [">"],
-           "Unicode" : "→",
+           "Display" : "→",
            "LaTeX"   : "\\to"
        },
        "IFF" : {
            "Keys"    : ["-"],
-           "Unicode" : "⟷",
+           "Display" : "⟷",
            "LaTeX"   : "\\leftrightarrow"
        }
    },
