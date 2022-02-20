@@ -35,12 +35,12 @@ To specify a ¬ connective, one could add:
 
 ### Sentence Letters and Metavariables
 
-The rules for allowed sentence letters and metavariables are declared in the same `"Inputs"`, `"Display"`, `"LaTeX"` format as connectives, but with rules specified in python compatible regex, with escaped `\`s. `"Inputs"` is also a single regex string recognising input and not a list. For example, the following allows natural numbered sentence letters P,Q and R:
+The rules for allowed sentence letters and metavariables are declared in the same `"Input"`, `"Display"`, `"LaTeX"` format as connectives, but with rules specified in python compatible regex, with escaped `\`s. `"Input"` is used instead of `"Inputs"` which is a single regex string recognising input and not a list. For example, the following allows natural numbered sentence letters P,Q and R:
 
 ```json
 
 "NUMBERED LETTER":{
-           "Inputs"    : "([PQR])([1-9][0-9]*)",
+           "Input"    : "([PQR])([1-9][0-9]*)",
            "Display"   : "\\1\\2",
            "LaTeX"     : "\\1_{\\2}"
        }
