@@ -1,31 +1,43 @@
 
 {
-   "Connectives": {
+   "Connectives" : {
        "NOT" : {
-           "Keys"    : ["!"],
+           "Inputs"    : ["!"],
            "Display" : "¬",
            "LaTeX"   : "\\lnot"
        },
        "AND" : {
-           "Keys"    : ["&"],
+           "Inputs"    : ["&"],
            "Display" : "∧",
            "LaTeX"   : "\\wedge"
        },
        "OR"  : {
-           "Keys"    : ["|"],
+           "Inputs"    : ["|"],
            "Display" : "∨",
            "LaTeX"   : "\\vee"
        },
        "IF"  : {
-           "Keys"    : [">"],
+           "Inputs"    : [">"],
            "Display" : "→",
            "LaTeX"   : "\\to"
        },
        "IFF" : {
-           "Keys"    : ["-"],
+           "Inputs"    : ["-"],
            "Display" : "⟷",
            "LaTeX"   : "\\leftrightarrow"
        }
    },
+   "Letters" : {
+       "SINGLE LETTER" : {
+           "Inputs"    : "([PQR])",
+           "Display"   : "\\1",
+           "LaTeX"     : "\\1"
+       },
+       "NUMBERED LETTER":{
+           "Inputs"    : "([PQR])([1-9][0-9]*)",
+           "Display"   : "\\1\\2",
+           "LaTeX"     : "\\1_{\\2}"
+}
+   }
     "Rules" : {}
 }
