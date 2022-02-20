@@ -16,7 +16,7 @@
            "Display" : "∨",
            "LaTeX"   : "\\vee"
        },
-       "IF"  : {
+       "THEN"  : {
            "Inputs"    : [">"],
            "Display" : "→",
            "LaTeX"   : "\\to"
@@ -37,7 +37,101 @@
            "Inputs"    : "([PQR])([1-9][0-9]*)",
            "Display"   : "\\1\\2",
            "LaTeX"     : "\\1_{\\2}"
-}
-   }
-    "Rules" : {}
+        },
+        "PHI"          : {
+            "Inputs"   : "F|f|PHI|Phi|phi",
+            "Display"  : "ɸ",
+            "LaTeX"    : "\\phi"
+        },
+        "PSI"          : {
+            "Inputs"   : "S|s|PSI|Psi|psi",
+            "Display"  : "ψ",
+            "LaTeX"    : "\\psi"
+        },
+        "CHI"          : {
+            "Inputs"   : "C|c|X|x|CHI|Chi|chi",
+            "Display"  : "χ",
+            "LaTeX"    : "\\chi"
+        }
+   },
+    "Rules" : {
+        "AND INTRO"    : {
+            "Display"  : "∧Intro",
+            "LaTeX"    : "$\\wedge$Intro",
+            "Inputs"   : ["$P","$Q"],
+            "Output"  : "$P AND $Q"
+        },
+        "AND ELIM 1"   : {
+            "Display"  : "∧Elim1",
+            "LaTeX"    : "$\\wedge$Elim1",
+            "Inputs"   : ["$P AND $Q"],
+            "Outputs"  : "$P"
+        },
+        "AND ELIM 2"    : {
+            "Display"  : "∧Elim2",
+            "LaTeX"    : "$\\wedge$Elim2",
+            "Inputs"   : ["$P AND $Q"],
+            "Outputs"  : "$Q"
+        },
+        "THEN INTRO"   : {
+            "Display"  : "→Intro",
+            "LaTeX"    : "$\\to$Intro",
+            "Inputs"   : [["$P","$Q"]],
+            "Outputs"  : "$P THEN $Q"
+        },
+        "THEN ELIM"    : {
+            "Display"  : "→Elim",
+            "LaTeX"    : "$\\to$Elim",
+            "Inputs"   : ["$P","$P THEN $Q"],
+            "Outputs"  : "$Q"
+        },
+        "OR INTRO 1"   : {
+            "Display"  : "∨Intro1",
+            "LaTeX"    : "$\\vee$Intro1",
+            "Inputs"   : ["$P"],
+            "Outputs"  : "$P OR $Q"
+        },
+        "OR INTRO 2"   : {
+            "Display"  : "∨Intro2",
+            "LaTeX"    : "$\\vee$Intro2",
+            "Inputs"   : ["$Q"],
+            "Outputs"  : "$P OR $Q"
+        },
+        "OR ELIM"      : {
+            "Display"  : "∨Elim",
+            "LaTeX"    : "$\\vee$Elim",
+            "Inputs"   : ["$P OR $Q",["$P","$R"],["$Q","$R"]],
+            "Outputs"  : "$R"
+        },
+        "NOT INTRO"   : {
+            "Display"  : "¬Intro",
+            "LaTeX"    : "$\\lnot$Intro",
+            "Inputs"   : [["$P","$Q"],["$P","NOT $Q"]],
+            "Outputs"  : "NOT $P"
+        },
+        "NOT ELIM"     : {
+            "Display"  : "¬Elim",
+            "LaTeX"    : "$\\lnot$Elim",
+            "Inputs"   : [["NOT $P","$Q"],["NOT $P","NOT $Q"]],
+            "Outputs"  : "$P"
+        },
+        "IFF INTRO"    : {
+            "Display"  : "⟷Intro",
+            "LaTeX"    : "$\\leftrightarrow$Intro",
+            "Inputs"   : ["$P THEN $Q","$Q THEN $P"],
+            "Outputs"  : "$P IFF $Q"
+        },
+        "IFF ELIM 1"   : {
+            "Display"  : "⟷Elim1",
+            "LaTeX"    : "$\\leftrightarrow$Elim1",
+            "Inputs"   : ["$P IFF $Q"],
+            "Outputs"  : "$P THEN $Q"
+        },
+        "IFF ELIM 2"   : {
+            "Display"  : "⟷Elim2",
+            "LaTeX"    : "$\\leftrightarrow$Elim2",
+            "Inputs"   : ["$P IFF $Q"],
+            "Outputs"  : "$Q THEN $P"
+        }
+    }
 }
