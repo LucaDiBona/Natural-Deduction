@@ -1,5 +1,6 @@
 import os, sys, json, curses
 from dialects import *
+import Errors.exceptions as nde
 
 
 DIALECTS_FOLDER = "Dialects"
@@ -12,7 +13,12 @@ def init():
     dialects = []
     for i in dialectFiles:
         f = open(DIALECTS_FOLDER + "/" + i,"r")
-        dialects.append(Dialect(json.loads(f.read())))
+        try:
+            dialects.append(Dialect(json.load(f)))
+        except json.JSONDecodeError:
+            pass
+        except nde.MissingDialectKey:
+            pass
         f.close()
     print(dialects)
 

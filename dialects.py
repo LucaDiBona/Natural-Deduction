@@ -1,6 +1,6 @@
 
 from typing import Dict
-from errors import *
+import Errors.exceptions as nde
 import sys
 
 
@@ -17,10 +17,12 @@ class Dialect():
                 self.letters[i] = Letter(ddict["Letters"][i])
             self.rules = {}
             for i in ddict["Rules"]:
-                self.letters[i] = Rule(ddict["Rules"][i])
+                self.rules[i] = Rule(ddict["Rules"][i])
         except KeyError:
-            key=sys.exc_info()[1]         #the name of the missing key
-            Error(f"Missing {key} value in dialect definition file") #TODO nicer, with file name!!
+            raise nde.MissingDialectKey(sys.exc_info()[1])         #raises error with the name of the missing key
+
+
+        #TODO check dialect produced same length as input dict - ie working correctly
 
 class Connective():
 
@@ -30,8 +32,7 @@ class Connective():
             self.display = cdict["Display"]
             self.latex = cdict["LaTeX"]
         except KeyError:
-            key=sys.exc_info()[1]         #the name of the missing key
-            Error(f"Missing {key} value in dialect definition file")
+            raise nde.MissingDialectKey(sys.exc_info()[1])         #raises error with the name of the missing key
 
 class Letter():
 
@@ -41,8 +42,7 @@ class Letter():
             self.display =ldict["Display"]
             self.latex = ldict["LaTeX"]
         except KeyError:
-            key=sys.exc_info()[1]         #the name of the missing key
-            Error(f"Missing {key} value in dialect definition file")
+            raise nde.MissingDialectKey(sys.exc_info()[1])         #raises error with the name of the missing key
 
 class Rule():
 
@@ -63,5 +63,4 @@ class Rule():
                     self.inputs.append([parse(i[0]),parse(i[1])])
             self.output = rdict["Output"]
         except KeyError:
-            key=sys.exc_info()[1]         #the name of the missing key
-            Error(f"Missing {key} value in dialect definition file")
+            raise nde.MissingDialectKey(sys.exc_info()[1])         #raises error with the name of the missing key

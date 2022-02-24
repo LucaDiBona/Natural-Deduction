@@ -1,5 +1,5 @@
 {
-  "Nme": "L1 - Logic Manual",
+  "Name": "L1 - Logic Manual",
   "Connectives": {
     "NOT": {
       "Inputs": ["!"],

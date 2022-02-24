@@ -2,6 +2,7 @@ class Error():
 
     def __init__(self,message:str="") -> None:
         self.errorMessage = message
+        print(self.errorMessage)
 
     def message():
         return(self.errorMessage)
