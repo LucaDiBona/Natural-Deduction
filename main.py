@@ -1,4 +1,5 @@
 import os, sys, json, curses
+from dialects import *
 
 
 DIALECTS_FOLDER = "Dialects"
@@ -11,9 +12,10 @@ def init():
     dialects = []
     for i in dialectFiles:
         f = open(DIALECTS_FOLDER + "/" + i,"r")
-        dialects.append(json.loads(f.read()))
+        dialects.append(Dialect(json.loads(f.read())))
         f.close()
     print(dialects)
+
 
 
 def main():
