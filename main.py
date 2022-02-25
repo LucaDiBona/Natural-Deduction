@@ -1,5 +1,9 @@
-import os, sys, json, curses
-from dialects import *
+import os
+import sys
+import json
+import curses
+import parse
+# from parse import *
 import Errors.exceptions as nde
 
 
@@ -9,18 +13,9 @@ def init():
     #Load user settings
 
     #Load dialects
-    dialectFiles = os.listdir(DIALECTS_FOLDER)
-    dialects = []
-    for i in dialectFiles:
-        f = open(DIALECTS_FOLDER + "/" + i,"r")
-        try:
-            dialects.append(Dialect(json.load(f)))
-        except json.JSONDecodeError:
-            pass
-        except nde.MissingDialectKey:
-            pass
-        f.close()
+    dialects = parse.getDialects(DIALECTS_FOLDER)
     print(dialects)
+
 
 
 

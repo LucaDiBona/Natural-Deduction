@@ -1,10 +1,44 @@
 
 from typing import Dict
 import Errors.exceptions as nde
-import sys
+import sys, os, json
 
+def getDialects(folder:str) -> list:
+
+    dialectFiles = os.listdir(folder)
+    dialects = {}
+    for i in dialectFiles:
+        f = open(folder + "/" + i,"r")
+        try:
+            newDialect = Dialect(json.load(f))
+            dialects[newDialect.name] = newDialect
+        except json.JSONDecodeError:
+            pass
+        except nde.MissingDialectKey:
+            pass
+        f.close()
+    return(dialects)
+
+class Proof():
+
+    def __init__(self,pdict:dict,dialects:list) -> None:
+        try:
+            self.name=pdict["Name"]
+            self.dialectName = pdict["Dialect"]
+            try:
+                self.dialect = dialects[self.dialectName]
+            except KeyError:
+                raise nde.DialectNotFound
+        except:
+            pass
+
+
+def loadProof(filepath:str):
+    print("hi")
 
 class Dialect():
+
+    #TODO specify bracketing conventions
 
     def __init__(self, ddict: dict) -> None:
         try:
@@ -159,7 +193,6 @@ class Rule():
                         self.metavariables.append(newMv)
                         self.output[i] = newMv
 
-            print(self.metavariables)
 
         except KeyError:
             # raises error with the name of the missing key

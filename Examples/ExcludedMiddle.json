@@ -1,0 +1,49 @@
+{
+  "Name": "Law of Excluded Middle",
+  "Dialect": "L1 - Logic Manual",
+  "Letters": { "$P": { "Flavour": "SINGLE LETTER", "Input": "P" } },
+  "Tree": {
+    "Rule": "NOT ELIM",
+    "Output": ["$P", "OR", ["NOT", "$P"]],
+    "Discharges": 0,
+    "Inputs": [
+      {
+        "Rule": "OR INTRO 2",
+        "Output": ["$P", "OR", ["NOT", "$P"]],
+        "Inputs": [
+          {
+            "Rule": "NOT INTRO",
+            "Discharges": 1,
+            "Output": ["NOT", "$P"],
+            "Inputs": [
+              {
+                "Rule": "OR INTRO 1",
+                "Output": ["$P", "OR", ["NOT", "$P"]],
+                "Inputs": [
+                  {
+                    "Rule": "!ASSUME",
+                    "Output": ["$P"],
+                    "Discharged": "True",
+                    "DischargedBy": 1
+                  }
+                ]
+              },
+              {
+                "Rule": "!ASSUME",
+                "Output": ["NOT", ["$P", "OR", ["NOT", "$P"]]],
+                "Discharged": "True",
+                "DischargedBy": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Rule": "!ASSUME",
+        "Output": ["NOT", ["$P", "OR", ["NOT", "$P"]]],
+        "Discharged": "True",
+        "DischargedBy": 0
+      }
+    ]
+  }
+}

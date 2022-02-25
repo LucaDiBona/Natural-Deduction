@@ -26,3 +26,16 @@ class MissingDialectKey(DialectError):
         self.file = file
         print(key)
         super().__init__(self.file)
+
+class ProofError(FileError):
+
+    def __init__(self,file:str="") -> None:
+        self.file = file
+        super().__init__(self.file)
+
+class DialectNotFound(FileError):
+
+    def __init__(self,dialect:str,file:str="") -> None:
+        self.dialect = dialect
+        self.file = file
+        super().__init__(self.file)
